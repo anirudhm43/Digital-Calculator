@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Digital Calculator</title>
+        <style>
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            
+            font-family: 'Arial', sans-serif;
+        }
+        .display{
+             width: 300px;
+            height: 100px;
+            font-size: 24px;
+            text-align: right;
+            margin-bottom: 20px;
+            border: none;
+            border-radius: 5px;
+            padding-right: 10px;
+        }
+        #Calci{
+            border-radius: 5px;
+            background-color: #3b4970;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+        .buttons{
+            display: grid;
+            grid-template-columns: repeat(4, 70px);
+            grid-gap: 10px;
+                
+        }
+        button{
+            padding: 20px;
+            font-size: 18px;
+            border: none;
+            border-radius: 5px;
+            background-color: #b3ffed;
+            color: rgba(18, 7, 7, 0.959);
+            cursor: pointer;
+        }
+        button:hover{
+            background-color: #555;     
+        }
+        #equal{
+            grid-column: span 3;
+            background-color: #ed6d0c;
+        }
+
+        
+            
+            
+           
+        </style>
+        
+    </head>
+
+    <div id="Calci">
+    <input class="display" type="text" style="width: 300px; height: 100px;">
+    <p style="color: aliceblue; width: 2in;padding-top: 1px; margin: 1px 0 10px 0;"><b>Digital Calculator</b></p>
+    <div class="buttons">
+        <button id="1" onclick="funI('1')">1</button>
+        <button id="2" onclick="funI('2')">2</button>
+        <button id="3" onclick="funI('3')">3</button>
+        <button id="a" onclick="funI('+')">+</button>
+        <button id="4" onclick="funI('4')">4</button>
+        <button id="5" onclick="funI('5')">5</button>
+        <button id="6" onclick="funI('6')">6</button>
+        <button id="s" onclick="funI('-')">-</button>
+        <button id="7" onclick="funI('7')">7</button>
+        <button id="8" onclick="funI('8')">8</button>
+        <button id="9" onclick="funI('9')">9</button>
+        <button id="m" onclick="funI('*')">*</button>
+        <button onclick="clearDisplay()">AC</button>
+        <button onclick="funI('0')">0</button>
+        <button id="float" onclick="funI('.')">.</button>
+        <button id="d" onclick="funI('/')">/</button>
+        <button onclick="backspace()">C</button>
+        <button id="equal" onclick="calculate()">=</button>
+    </div>
+    </div>
+
+
+    
+    
+
+    
+    <script>
+        let display=document.querySelector(".display")
+        function funI(I) {
+            display.value+=I;
+        }
+        function clearDisplay() {
+        display.value ="";
+        }
+
+        function backspace() {
+            display.value = display.value.slice(0, -1);
+        }
+
+        function calculate() {
+            try {
+                display.value = eval(display.value);
+            } catch {
+                display.value = "Error";
+            }
+        }
+</script>
+    
+    </script>
+</html>
